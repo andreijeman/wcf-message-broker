@@ -26,18 +26,22 @@ namespace Broker.Services.Services
 
         public async Task<SubscriptionResponse> Subscribe(string topicName)
         {
-            if (!await _topicRepository.ExistsByName(topicName))
+            var topic = await _topicRepository.GetByName(topicName);
+
+            if (topic == null)
                 throw new FaultException<SubscriptionFault>(new SubscriptionFault { Topic = topicName, Description = "Topic not found" });
 
             // todo: use real subscriber id after adding auth
             var queuePath = Configuration.MsqmBasePath + topicName + Guid.NewGuid().ToString();
 
-            if (MessageQueue.Exists(Configuration.MsqmBasePath + topicName))
+            if (MessageQueue.Exists(queuePath))
                 throw new FaultException<SubscriptionFault>(new SubscriptionFault { Topic = topicName, Description = "Already subscribed" });
+
+            topic.QueueList.Add(queuePath);
 
             try
             {
-                MessageQueue.Create(@".\Private$\SomeTestName");
+                MessageQueue.Create(queuePath);
             }
             catch
             {

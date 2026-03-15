@@ -31,9 +31,9 @@ namespace Broker.Services.Services
             if (topic == null)
                 throw new FaultException<PublicationFault>(new PublicationFault { Topic = message.Topic, Description = "Topic not found" });
 
-            foreach (TopicSubscriberQueue queue in topic.QueueList)
+            foreach (string queue in topic.QueueList)
             {
-                var messageQueue = new MessageQueue(queue.QueuePath);
+                var messageQueue = new MessageQueue(queue);
                 messageQueue.Send(message);
             }
         }

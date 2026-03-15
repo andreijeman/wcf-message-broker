@@ -56,29 +56,53 @@ namespace Broker.Client
             while (true)
             {
                 Console.Write("Topic: ");
+                
                 var topic = Console.ReadLine();
-
-                var response = client.Subscribe(topic);
-
-                Task.Run(() =>
+                
+                try
                 {
-                    try
+                    var response = client.Subscribe(topic);
+                  
+                    Task.Run(() => HandleSubscriberMessageQueue(response.QueuePath));
+                }
+                catch (FaultException<SubscriptionFault> e)
+                {
+                    Console.WriteLine(e.Detail.Description);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+
+
+            }
+        }
+
+        static void HandleSubscriberMessageQueue(string queuePath)
+        {
+            while(true)
+            {
+                try
+                {
+                    var queue = new MessageQueue(queuePath);
+                    queue.Formatter = new XmlMessageFormatter(new Type[] { typeof(Message) });
+                   
+                    var message = queue.Receive(new TimeSpan(0, 0, 3));
+
+                    if (message != null)
                     {
-                        var queue = new MessageQueue(response.QueuePath);
-                        var message = queue.Receive(new TimeSpan(0, 0, 3));
-
-                        if (message != null)
-                        {
-                            Console.WriteLine(message.Body);
-                        }
+                        var body = (Message)message.Body;
+                        Console.WriteLine(body.Text);
                     }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine($"In Topic <{response.TopicName}> occurred a error: {e}");
-                    }
+                }
+                catch (MessageQueueException ex)
+                {
 
-                });
-
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
             }
         }
     }
