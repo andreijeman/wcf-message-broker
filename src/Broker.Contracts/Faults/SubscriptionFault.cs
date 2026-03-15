@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Broker.Contracts.data
+namespace Broker.Contracts.Faults
 {
     [DataContract]
     public class SubscriptionFault

@@ -1,13 +1,13 @@
-﻿using Broker.Contracts;
-using Broker.Contracts.data;
-using Broker.Contracts.Data;
+﻿using Broker.Contracts.Data;
+using Broker.Contracts.Faults;
 using Broker.Contracts.Repositories;
+using Broker.Contracts.Services;
 using System;
 using System.Messaging;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
-namespace Broker.Service.Services
+namespace Broker.Services.Services
 {
     public class SubscriberService : ISubscriber
     {

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Broker.Contracts
+namespace Broker.Contracts.Data
 {
     [DataContract]
     public class Message
