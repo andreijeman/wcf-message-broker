@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,6 +49,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Broker.Contracts\Broker.Contracts.csproj">
+      <Project>{20dffd4e-05af-4336-950b-104704447f3a}</Project>
+      <Name>Broker.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Broker.Services\Broker.Services.csproj">
+      <Project>{1d654084-67ac-42f8-b62d-49998e564e66}</Project>
+      <Name>Broker.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
