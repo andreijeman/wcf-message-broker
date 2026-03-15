@@ -13,6 +13,11 @@ namespace Broker.Services.Services
     {
         private readonly ITopicRepository _topicRepository;
 
+        public PublisherService()
+        {
+            
+        }
+
         public PublisherService(ITopicRepository topicRepository)
         {
             _topicRepository = topicRepository;

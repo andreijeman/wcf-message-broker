@@ -18,6 +18,11 @@ namespace Broker.Services.Services
             _topicRepository = topicRepository;
         }
 
+        public SubscriberService()
+        {
+            
+        }
+
         public async Task<SubscriptionResponse> Subscribe(string topicName)
         {
             if (!await _topicRepository.ExistsByName(topicName))
