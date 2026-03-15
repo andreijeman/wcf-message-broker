@@ -8,7 +8,7 @@ namespace Broker.Services.Repositories
 {
     public class TopicRepository : ITopicRepository
     {
-        private readonly List<Topic> _topicList = new List<Topic>();
+        private readonly List<Topic> _topicList = new List<Topic>() { new Topic { Name = "test" } };
 
         public Task Add(Topic topic)
         {

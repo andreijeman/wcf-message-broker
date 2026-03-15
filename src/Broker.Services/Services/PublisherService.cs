@@ -2,6 +2,7 @@
 using Broker.Contracts.Faults;
 using Broker.Contracts.Repositories;
 using Broker.Contracts.Services;
+using Broker.Services.Repositories;
 using System.Messaging;
 using System.ServiceModel;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace Broker.Services.Services
 
         public PublisherService()
         {
-            
+            _topicRepository = new TopicRepository();
         }
 
         public PublisherService(ITopicRepository topicRepository)

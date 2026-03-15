@@ -2,6 +2,7 @@
 using Broker.Contracts.Faults;
 using Broker.Contracts.Repositories;
 using Broker.Contracts.Services;
+using Broker.Services.Repositories;
 using System;
 using System.Messaging;
 using System.ServiceModel;
@@ -13,14 +14,14 @@ namespace Broker.Services.Services
     {
         private readonly ITopicRepository _topicRepository;
 
+        public SubscriberService()
+        {
+            _topicRepository = new TopicRepository();
+        }
+
         public SubscriberService(ITopicRepository topicRepository)
         {
             _topicRepository = topicRepository;
-        }
-
-        public SubscriberService()
-        {
-            
         }
 
         public async Task<SubscriptionResponse> Subscribe(string topicName)

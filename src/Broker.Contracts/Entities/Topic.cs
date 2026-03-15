@@ -7,6 +7,6 @@ namespace Broker.Contracts.Entities
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public IEnumerable<TopicSubscriberQueue> QueueList { get; set; }
+        public IEnumerable<TopicSubscriberQueue> QueueList { get; set; } = new List<TopicSubscriberQueue>();
     }
 }

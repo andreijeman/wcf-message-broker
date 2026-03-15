@@ -1,4 +1,5 @@
-﻿using Broker.Services.Services;
+﻿using Broker.Services.Repositories;
+using Broker.Services.Services;
 using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
@@ -17,7 +18,6 @@ namespace Broker.Host
 
         static void RunPublisherService()
         {
-
             ServiceHost selfHost = new ServiceHost(typeof(PublisherService));
 
             try
@@ -34,7 +34,6 @@ namespace Broker.Host
 
         static void RunSubscriberService()
         {
-
             ServiceHost selfHost = new ServiceHost(typeof(SubscriberService));
 
             try
