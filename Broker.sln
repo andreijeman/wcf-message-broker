@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broker.Contracts", "src\Broker.Contracts\Broker.Contracts.csproj", "{20DFFD4E-05AF-4336-950B-104704447F3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broker.Host", "src\Broker.Host\Broker.Host.csproj", "{8C65CA85-F6D2-4F90-BA47-A3D324A9F4D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broker.Services", "src\Broker.Services\Broker.Services.csproj", "{1D654084-67AC-42F8-B62D-49998E564E66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,19 @@ Global
 		{20DFFD4E-05AF-4336-950B-104704447F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20DFFD4E-05AF-4336-950B-104704447F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20DFFD4E-05AF-4336-950B-104704447F3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C65CA85-F6D2-4F90-BA47-A3D324A9F4D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C65CA85-F6D2-4F90-BA47-A3D324A9F4D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C65CA85-F6D2-4F90-BA47-A3D324A9F4D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C65CA85-F6D2-4F90-BA47-A3D324A9F4D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D654084-67AC-42F8-B62D-49998E564E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D654084-67AC-42F8-B62D-49998E564E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D654084-67AC-42F8-B62D-49998E564E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D654084-67AC-42F8-B62D-49998E564E66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22F67FF3-B08B-4621-B960-EA172799BF2E}
 	EndGlobalSection
 EndGlobal

@@ -7,6 +7,5 @@ namespace Broker.Contracts.Entities
         public Guid TopicId { get; set; }
         public Guid SubscriberId { get; set; }
         public string QueuePath { get; set; }
-
     }
 }
