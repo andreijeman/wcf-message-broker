@@ -2,6 +2,7 @@
 using Broker.Client.ServiceReference2;
 using System;
 using System.Messaging;
+using System.Runtime.Remoting.Messaging;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using Message = Broker.Client.ServiceReference2.Message;
@@ -80,30 +81,31 @@ namespace Broker.Client
 
         static void HandleSubscriberMessageQueue(string queuePath)
         {
-            while(true)
+            try
             {
-                try
-                {
-                    var queue = new MessageQueue(queuePath);
-                    queue.Formatter = new XmlMessageFormatter(new Type[] { typeof(Message) });
-                   
-                    var message = queue.Receive(new TimeSpan(0, 0, 3));
+                var queue = new MessageQueue(queuePath);
+                queue.Formatter = new XmlMessageFormatter(new Type[] { typeof(Message) });
 
-                    if (message != null)
-                    {
-                        var body = (Message)message.Body;
-                        Console.WriteLine(body.Text);
-                    }
-                }
-                catch (MessageQueueException ex)
-                {
+                queue.ReceiveCompleted += OnSubscriberMessageQueueReceived;
+                queue.BeginReceive();
 
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        static void OnSubscriberMessageQueueReceived(Object source, ReceiveCompletedEventArgs eventArgs)
+        {
+            MessageQueue queue = (MessageQueue)source;
+
+            var message = queue.EndReceive(eventArgs.AsyncResult);
+
+            var body = (Message)message.Body;
+            Console.WriteLine(body.Text);
+
+            queue.BeginReceive();
         }
     }
 }
