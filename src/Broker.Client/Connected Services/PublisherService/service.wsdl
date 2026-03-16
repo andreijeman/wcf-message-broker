@@ -8,26 +8,26 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Broker.Contracts.Data" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IPublisher_Publish_InputMessage">
+  <wsdl:message name="IPublisherService_Publish_InputMessage">
     <wsdl:part name="parameters" element="tns:Publish" />
   </wsdl:message>
-  <wsdl:message name="IPublisher_Publish_OutputMessage">
+  <wsdl:message name="IPublisherService_Publish_OutputMessage">
     <wsdl:part name="parameters" element="tns:PublishResponse" />
   </wsdl:message>
-  <wsdl:message name="IPublisher_Publish_PublicationFaultFault_FaultMessage">
+  <wsdl:message name="IPublisherService_Publish_PublicationFaultFault_FaultMessage">
     <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Broker.Contracts.Faults" name="detail" element="q1:PublicationFault" />
   </wsdl:message>
-  <wsdl:portType name="IPublisher">
+  <wsdl:portType name="IPublisherService">
     <wsdl:operation name="Publish">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPublisher/Publish" message="tns:IPublisher_Publish_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPublisher/PublishResponse" message="tns:IPublisher_Publish_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IPublisher/PublishPublicationFaultFault" name="PublicationFaultFault" message="tns:IPublisher_Publish_PublicationFaultFault_FaultMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IPublisherService/Publish" message="tns:IPublisherService_Publish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPublisherService/PublishResponse" message="tns:IPublisherService_Publish_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPublisherService/PublishPublicationFaultFault" name="PublicationFaultFault" message="tns:IPublisherService_Publish_PublicationFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="BasicHttpBinding_IPublisher" type="tns:IPublisher">
+  <wsdl:binding name="BasicHttpBinding_IPublisherService" type="tns:IPublisherService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Publish">
-      <soap:operation soapAction="http://tempuri.org/IPublisher/Publish" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IPublisherService/Publish" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -40,7 +40,7 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="PublisherService">
-    <wsdl:port name="BasicHttpBinding_IPublisher" binding="tns:BasicHttpBinding_IPublisher">
+    <wsdl:port name="BasicHttpBinding_IPublisherService" binding="tns:BasicHttpBinding_IPublisherService">
       <soap:address location="http://localhost:8080/services/publisher" />
     </wsdl:port>
   </wsdl:service>

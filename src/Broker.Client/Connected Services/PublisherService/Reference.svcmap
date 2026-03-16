@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="438541b0-bf7a-4140-a293-4af31ee86af1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="a1819b52-5055-4b22-ad34-7236062a284a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:8080/services/publisher/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="b8cb0fe4-3107-46c1-8325-452dc6443f66" SourceId="1" SourceUrl="http://localhost:8080/services/publisher/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="130e0718-2ca7-4a2e-8fe2-40792717c8b9" SourceId="1" SourceUrl="http://localhost:8080/services/publisher/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="4a4777db-4cc3-46d4-ac22-89728e25b2cc" SourceId="1" SourceUrl="http://localhost:8080/services/publisher/mex" />
-    <MetadataFile FileName="Broker.Contracts.Data.xsd" MetadataType="Schema" ID="30907e53-3157-4b0f-b1f6-9c8700d8e3c4" SourceId="1" SourceUrl="http://localhost:8080/services/publisher/mex" />
-    <MetadataFile FileName="Broker.Contracts.Faults.xsd" MetadataType="Schema" ID="c227566f-286a-45cc-8a7b-beea72437576" SourceId="1" SourceUrl="http://localhost:8080/services/publisher/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="b685439b-2e8f-4c4c-aa93-a506422d14d8" SourceId="1" SourceUrl="http://localhost:8080/services/publisher/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="45ad4771-2ce7-4db4-aa1d-667dcfc7b884" SourceId="1" SourceUrl="http://localhost:8080/services/publisher/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="6cc88ba7-d260-4f3b-a378-8186e155f2d2" SourceId="1" SourceUrl="http://localhost:8080/services/publisher/mex" />
+    <MetadataFile FileName="Broker.Contracts.Data.xsd" MetadataType="Schema" ID="53b6b071-db9d-4ff1-a037-80546745abd9" SourceId="1" SourceUrl="http://localhost:8080/services/publisher/mex" />
+    <MetadataFile FileName="Broker.Contracts.Faults.xsd" MetadataType="Schema" ID="ceca5f94-4950-4ddd-bfbc-1b93cb46fcf3" SourceId="1" SourceUrl="http://localhost:8080/services/publisher/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

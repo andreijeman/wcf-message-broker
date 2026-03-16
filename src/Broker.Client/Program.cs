@@ -1,11 +1,11 @@
-﻿using Broker.Client.ServiceReference1;
-using Broker.Client.ServiceReference2;
+﻿using Broker.Client.PublisherService;
+using Broker.Client.SubscriberService;
+using Broker.Client.TopicService;
 using System;
 using System.Messaging;
-using System.Runtime.Remoting.Messaging;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Message = Broker.Client.ServiceReference2.Message;
+using Message = Broker.Client.PublisherService.Message;
 
 namespace Broker.Client
 {
@@ -13,26 +13,30 @@ namespace Broker.Client
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter 1 to run Publisher or 2 to run Subscriber");
-            var option = Console.ReadLine();
+            Console.WriteLine("Options: ");
+            Console.WriteLine("  Run Publisher:   1");
+            Console.WriteLine("  Run Subscriber:  2");
+            Console.Write("> ");
 
-            if (option == "1")
+            var opt = Console.ReadLine();
+
+            if (opt == "1")
             {
                 RunPublisher();
             }
-            else if (option == "2")
+            else if (opt == "2")
             {
                 RunSubscriber();
             }
-            else Console.WriteLine("Unknown option");
         }
 
         static void RunPublisher()
         {
-            var client = new PublisherClient();
+            var client = new PublisherServiceClient();
 
             while (true)
             {
+                Console.WriteLine();
                 Console.Write("Topic: ");
                 var topic = Console.ReadLine();
 
@@ -52,30 +56,54 @@ namespace Broker.Client
 
         static void RunSubscriber()
         {
-            var client = new SubscriberClient();
+            var subscriberClient = new SubscriberServiceClient();
+            var topicClient = new TopicServiceClient();
 
             while (true)
             {
-                Console.Write("Topic: ");
-                
-                var topic = Console.ReadLine();
-                
-                try
+                Console.WriteLine("Options: ");
+                Console.WriteLine("  Subscribe:     1");
+                Console.WriteLine("  Show topics:   2");
+                Console.Write("> ");
+
+                var opt = Console.ReadLine();
+
+                if(opt == "1")
                 {
-                    var response = client.Subscribe(topic);
+                    Console.WriteLine();
+                    Console.Write("Topic: ");
+                    var topic = Console.ReadLine();
+                
+                    try
+                    {
+                        var response = subscriberClient.Subscribe(topic);
                   
-                    Task.Run(() => HandleSubscriberMessageQueue(response.QueuePath));
+                        Task.Run(() => HandleSubscriberMessageQueue(response.QueuePath));
+                    }
+                    catch (FaultException<SubscriptionFault> e)
+                    {
+                        Console.WriteLine(e.Detail.Description);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                    }
                 }
-                catch (FaultException<SubscriptionFault> e)
+                else if(opt == "2")
                 {
-                    Console.WriteLine(e.Detail.Description);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
+                    var topicList = topicClient.GetTopicList();
 
+                    Console.WriteLine();
+                    Console.Write("Topics: ");
+                    foreach (var topic in topicList)
+                    {
+                        Console.Write(topic.Name + "; ");
+                    }
+                    Console.WriteLine();
+                }
+                else Console.WriteLine("Unknown option");
 
+                Console.WriteLine();
             }
         }
 
@@ -103,7 +131,10 @@ namespace Broker.Client
             var message = queue.EndReceive(eventArgs.AsyncResult);
 
             var body = (Message)message.Body;
+            Console.WriteLine();
+            Console.WriteLine($"--- Message from <{body.Topic}> topic ---");
             Console.WriteLine(body.Text);
+            Console.WriteLine(" --- Message End ---");
 
             queue.BeginReceive();
         }

@@ -10,23 +10,18 @@ using Message = Broker.Contracts.Data.Message;
 
 namespace Broker.Services.Services
 {
-    public class PublisherService : IPublisher
+    public class PublisherService : IPublisherService
     {
         private readonly ITopicRepository _topicRepository;
 
         public PublisherService()
         {
-            _topicRepository = new TopicRepository();
+            _topicRepository = Container.GetInstance<ITopicRepository>();
         }
 
-        public PublisherService(ITopicRepository topicRepository)
+        public void Publish(Message message)
         {
-            _topicRepository = topicRepository;
-        }
-
-        public async Task Publish(Message message)
-        {
-            var topic = await _topicRepository.GetByName(message.Topic);
+            var topic = _topicRepository.GetByName(message.Topic);
 
             if (topic == null)
                 throw new FaultException<PublicationFault>(new PublicationFault { Topic = message.Topic, Description = "Topic not found" });

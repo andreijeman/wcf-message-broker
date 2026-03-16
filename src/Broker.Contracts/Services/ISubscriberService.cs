@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 namespace Broker.Contracts.Services
 {
     [ServiceContract]
-    public interface ISubscriber
+    public interface ISubscriberService
     {
         [OperationContract]
         [FaultContract(typeof(SubscriptionFault))]
-        Task<SubscriptionResponse> Subscribe(string topicName);
+        SubscriptionResponse Subscribe(string topicName);
     }
 }

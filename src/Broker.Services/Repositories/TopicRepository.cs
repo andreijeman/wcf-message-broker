@@ -8,24 +8,26 @@ namespace Broker.Services.Repositories
 {
     public class TopicRepository : ITopicRepository
     {
-        private static readonly List<Topic> _topicList = new List<Topic>() { new Topic { Name = "test" }, new Topic { Name = "test2" } };
+        private static readonly List<Topic> _topicList = new List<Topic>() { new Topic { Name = "test" }, new Topic { Name = "test2" }, new Topic { Name = "test3" } };
 
-        public Task Add(Topic topic)
+        public void Add(Topic topic)
         {
             _topicList.Add(topic);
-            return Task.CompletedTask;
         }
 
-        public Task<bool> ExistsByName(string name)
+        public bool ExistsByName(string name)
         {
-            var result = _topicList.Exists(e => e.Name == name);
-            return Task.FromResult(result);
+            return _topicList.Exists(e => e.Name == name);
         }
 
-        public Task<Topic> GetByName(string name)
+        public IEnumerable<Topic> GetAll()
         {
-            var result = _topicList.SingleOrDefault(e => e.Name == name);
-            return Task.FromResult(result);
+            return _topicList;
+        }
+
+        public Topic GetByName(string name)
+        {
+            return _topicList.SingleOrDefault(e => e.Name == name);
         }
     }
 }

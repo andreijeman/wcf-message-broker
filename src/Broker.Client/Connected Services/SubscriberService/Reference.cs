@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Broker.Client.ServiceReference1 {
+namespace Broker.Client.SubscriberService {
     using System.Runtime.Serialization;
     using System;
     
@@ -136,49 +136,49 @@ namespace Broker.Client.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.ISubscriber")]
-    public interface ISubscriber {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SubscriberService.ISubscriberService")]
+    public interface ISubscriberService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriber/Subscribe", ReplyAction="http://tempuri.org/ISubscriber/SubscribeResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Broker.Client.ServiceReference1.SubscriptionFault), Action="http://tempuri.org/ISubscriber/SubscribeSubscriptionFaultFault", Name="SubscriptionFault", Namespace="http://schemas.datacontract.org/2004/07/Broker.Contracts.Faults")]
-        Broker.Client.ServiceReference1.SubscriptionResponse Subscribe(string topicName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriberService/Subscribe", ReplyAction="http://tempuri.org/ISubscriberService/SubscribeResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Broker.Client.SubscriberService.SubscriptionFault), Action="http://tempuri.org/ISubscriberService/SubscribeSubscriptionFaultFault", Name="SubscriptionFault", Namespace="http://schemas.datacontract.org/2004/07/Broker.Contracts.Faults")]
+        Broker.Client.SubscriberService.SubscriptionResponse Subscribe(string topicName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriber/Subscribe", ReplyAction="http://tempuri.org/ISubscriber/SubscribeResponse")]
-        System.Threading.Tasks.Task<Broker.Client.ServiceReference1.SubscriptionResponse> SubscribeAsync(string topicName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubscriberService/Subscribe", ReplyAction="http://tempuri.org/ISubscriberService/SubscribeResponse")]
+        System.Threading.Tasks.Task<Broker.Client.SubscriberService.SubscriptionResponse> SubscribeAsync(string topicName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISubscriberChannel : Broker.Client.ServiceReference1.ISubscriber, System.ServiceModel.IClientChannel {
+    public interface ISubscriberServiceChannel : Broker.Client.SubscriberService.ISubscriberService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SubscriberClient : System.ServiceModel.ClientBase<Broker.Client.ServiceReference1.ISubscriber>, Broker.Client.ServiceReference1.ISubscriber {
+    public partial class SubscriberServiceClient : System.ServiceModel.ClientBase<Broker.Client.SubscriberService.ISubscriberService>, Broker.Client.SubscriberService.ISubscriberService {
         
-        public SubscriberClient() {
+        public SubscriberServiceClient() {
         }
         
-        public SubscriberClient(string endpointConfigurationName) : 
+        public SubscriberServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public SubscriberClient(string endpointConfigurationName, string remoteAddress) : 
+        public SubscriberServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public SubscriberClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public SubscriberServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public SubscriberClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public SubscriberServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public Broker.Client.ServiceReference1.SubscriptionResponse Subscribe(string topicName) {
+        public Broker.Client.SubscriberService.SubscriptionResponse Subscribe(string topicName) {
             return base.Channel.Subscribe(topicName);
         }
         
-        public System.Threading.Tasks.Task<Broker.Client.ServiceReference1.SubscriptionResponse> SubscribeAsync(string topicName) {
+        public System.Threading.Tasks.Task<Broker.Client.SubscriberService.SubscriptionResponse> SubscribeAsync(string topicName) {
             return base.Channel.SubscribeAsync(topicName);
         }
     }

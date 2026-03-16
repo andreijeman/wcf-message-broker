@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace Broker.Services.Services
 {
-    public class SubscriberService : ISubscriber
+    public class SubscriberService : ISubscriberService
     {
         private readonly ITopicRepository _topicRepository;
 
         public SubscriberService()
         {
-            _topicRepository = new TopicRepository();
+            _topicRepository = Container.GetInstance<ITopicRepository>();
         }
 
         public SubscriberService(ITopicRepository topicRepository)
@@ -24,9 +24,9 @@ namespace Broker.Services.Services
             _topicRepository = topicRepository;
         }
 
-        public async Task<SubscriptionResponse> Subscribe(string topicName)
+        public SubscriptionResponse Subscribe(string topicName)
         {
-            var topic = await _topicRepository.GetByName(topicName);
+            var topic = _topicRepository.GetByName(topicName);
 
             if (topic == null)
                 throw new FaultException<SubscriptionFault>(new SubscriptionFault { Topic = topicName, Description = "Topic not found" });

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Broker.Client.ServiceReference2 {
+namespace Broker.Client.PublisherService {
     using System.Runtime.Serialization;
     using System;
     
@@ -136,49 +136,49 @@ namespace Broker.Client.ServiceReference2 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.IPublisher")]
-    public interface IPublisher {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PublisherService.IPublisherService")]
+    public interface IPublisherService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPublisher/Publish", ReplyAction="http://tempuri.org/IPublisher/PublishResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Broker.Client.ServiceReference2.PublicationFault), Action="http://tempuri.org/IPublisher/PublishPublicationFaultFault", Name="PublicationFault", Namespace="http://schemas.datacontract.org/2004/07/Broker.Contracts.Faults")]
-        void Publish(Broker.Client.ServiceReference2.Message message);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPublisherService/Publish", ReplyAction="http://tempuri.org/IPublisherService/PublishResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Broker.Client.PublisherService.PublicationFault), Action="http://tempuri.org/IPublisherService/PublishPublicationFaultFault", Name="PublicationFault", Namespace="http://schemas.datacontract.org/2004/07/Broker.Contracts.Faults")]
+        void Publish(Broker.Client.PublisherService.Message message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPublisher/Publish", ReplyAction="http://tempuri.org/IPublisher/PublishResponse")]
-        System.Threading.Tasks.Task PublishAsync(Broker.Client.ServiceReference2.Message message);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPublisherService/Publish", ReplyAction="http://tempuri.org/IPublisherService/PublishResponse")]
+        System.Threading.Tasks.Task PublishAsync(Broker.Client.PublisherService.Message message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IPublisherChannel : Broker.Client.ServiceReference2.IPublisher, System.ServiceModel.IClientChannel {
+    public interface IPublisherServiceChannel : Broker.Client.PublisherService.IPublisherService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PublisherClient : System.ServiceModel.ClientBase<Broker.Client.ServiceReference2.IPublisher>, Broker.Client.ServiceReference2.IPublisher {
+    public partial class PublisherServiceClient : System.ServiceModel.ClientBase<Broker.Client.PublisherService.IPublisherService>, Broker.Client.PublisherService.IPublisherService {
         
-        public PublisherClient() {
+        public PublisherServiceClient() {
         }
         
-        public PublisherClient(string endpointConfigurationName) : 
+        public PublisherServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public PublisherClient(string endpointConfigurationName, string remoteAddress) : 
+        public PublisherServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public PublisherClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public PublisherServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public PublisherClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public PublisherServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public void Publish(Broker.Client.ServiceReference2.Message message) {
+        public void Publish(Broker.Client.PublisherService.Message message) {
             base.Channel.Publish(message);
         }
         
-        public System.Threading.Tasks.Task PublishAsync(Broker.Client.ServiceReference2.Message message) {
+        public System.Threading.Tasks.Task PublishAsync(Broker.Client.PublisherService.Message message) {
             return base.Channel.PublishAsync(message);
         }
     }

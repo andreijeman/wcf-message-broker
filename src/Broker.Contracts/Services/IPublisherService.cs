@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 namespace Broker.Contracts.Services
 {
     [ServiceContract]
-    public interface IPublisher
+    public interface IPublisherService
     {
         [OperationContract]
         [FaultContract(typeof(PublicationFault))]
-        Task Publish(Message message);
+        void Publish(Message message);
     }
 }
