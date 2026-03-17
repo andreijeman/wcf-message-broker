@@ -5,7 +5,6 @@ namespace Broker.Contracts.Data
     [DataContract]
     public class Message
     {
-
         [DataMember]
         public string Topic { get; set; }
 

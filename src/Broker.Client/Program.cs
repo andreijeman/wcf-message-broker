@@ -1,11 +1,9 @@
-﻿using Broker.Client.PublisherService;
-using Broker.Client.SubscriberService;
-using Broker.Client.TopicService;
+﻿using Broker.Contracts.Faults;
 using System;
 using System.Messaging;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Message = Broker.Client.PublisherService.Message;
+using Message = Broker.Contracts.Data.Message;
 
 namespace Broker.Client
 {
@@ -14,19 +12,19 @@ namespace Broker.Client
         static void Main(string[] args)
         {
             Console.WriteLine("Options: ");
-            Console.WriteLine("  Run Publisher:   1");
-            Console.WriteLine("  Run Subscriber:  2");
+            Console.WriteLine("  Run Subscriber:  1");
+            Console.WriteLine("  Run Publisher:   2");
             Console.Write("> ");
 
             var opt = Console.ReadLine();
 
             if (opt == "1")
             {
-                RunPublisher();
+                RunSubscriber();
             }
             else if (opt == "2")
             {
-                RunSubscriber();
+                RunPublisher();
             }
         }
 

@@ -46,112 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\PublisherService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\SubscriberService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\TopicService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
+    <Compile Include="Clients\PublisherService.cs" />
+    <Compile Include="Clients\SubscriberService.cs" />
+    <Compile Include="Clients\TopicService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\PublisherService\Broker.Contracts.Data.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\PublisherService\Broker.Contracts.Faults.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\PublisherService\service.wsdl" />
-    <None Include="Connected Services\PublisherService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\PublisherService\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SubscriberService\Broker.Client.SubscriberService.SubscriptionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SubscriberService\Broker.Contracts.Data.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SubscriberService\Broker.Contracts.Faults.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SubscriberService\service.wsdl" />
-    <None Include="Connected Services\SubscriberService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\SubscriberService\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\TopicService\Broker.Client.TopicService.TopicItem.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\TopicService\Broker.Contracts.Data.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\TopicService\service.wsdl" />
-    <None Include="Connected Services\TopicService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\TopicService\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\PublisherService\" />
-    <WCFMetadataStorage Include="Connected Services\SubscriberService\" />
-    <WCFMetadataStorage Include="Connected Services\TopicService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\PublisherService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\PublisherService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\PublisherService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SubscriberService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SubscriberService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SubscriberService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\TopicService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\TopicService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\TopicService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
