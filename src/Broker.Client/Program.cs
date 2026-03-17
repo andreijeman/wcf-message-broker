@@ -130,9 +130,7 @@ namespace Broker.Client
 
             var body = (Message)message.Body;
             Console.WriteLine();
-            Console.WriteLine($"--- Message from <{body.Topic}> topic ---");
-            Console.WriteLine(body.Text);
-            Console.WriteLine(" --- Message End ---");
+            Console.WriteLine($"{body.Topic}: {body.Text}");
 
             queue.BeginReceive();
         }

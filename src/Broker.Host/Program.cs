@@ -12,6 +12,7 @@ namespace Broker.Host
         {
             Task.Run(() => RunPublisherService());
             Task.Run(() => RunSubscriberService());
+            Task.Run(() => RunTopicService());
 
             Console.ReadKey();
         }
@@ -40,6 +41,22 @@ namespace Broker.Host
             {
                 selfHost.Open();
                 Console.WriteLine("The subscriber service is ready.");
+            }
+            catch (CommunicationException ce)
+            {
+                Console.WriteLine("An exception occurred: {0}", ce.Message);
+                selfHost.Abort();
+            }
+        }
+
+        static void RunTopicService()
+        {
+            ServiceHost selfHost = new ServiceHost(typeof(TopicService));
+
+            try
+            {
+                selfHost.Open();
+                Console.WriteLine("The topic service is ready.");
             }
             catch (CommunicationException ce)
             {
